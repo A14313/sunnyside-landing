@@ -1,9 +1,22 @@
 :root {
     --clr-dark-title: hsl(212, 27%, 19%);
-    --clr-desc: hsl(232, 10%, 60%);
+    --clr-dark-title-lighter: hsl(210, 4%, 67%);
+    
+    --clr-desc: hsl(210, 4%, 67%);
+    --clr-two-column-desc: hsl(232, 10%, 60%);
+    --clr-testimonial-desc: hsl(232, 10%, 55%);
     
     //This is for the sections with learn more link underline
     --clr-transform-section: hsl(51, 100%, 49%);
     --clr-standout-section: hsl(7, 99%, 70%);
+    //END
+    
+    --clr-graphic-section-title: hsl(167, 40%, 24%);
+    --clr-photography-section-title: hsl(198, 62%, 26%);
+    
+    --clr-contact-link: hsl(51, 100%, 49%);
+    
+    --clr-footer-text: hsl(168, 34%, 41%);
+    --clr-footer: #90D4C5;
     
 }

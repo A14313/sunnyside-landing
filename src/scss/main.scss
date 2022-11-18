@@ -22,36 +22,87 @@ body {
 
 header {
     position: relative;
+    border: 1px solid red;
 }
 
 .nav {
-//    background-color: black;
+    //        background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2em var(--default-padding-inline);
-    
-    
+
+
     position: absolute;
     width: 100%;
-    
+
     top: 0;
     left: 0px;
+    z-index: 99;
+
+}
+
+.hamburger-menu {
+    background-color: white;
+    clip-path: polygon(0 7%, 93% 7%, 100% 0%, 100% 100%, 0 100%);
+    width: 90%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    position: absolute;
+    padding-block-start: 3em;
+    padding-block-end: 2em;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms ease;
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        align-items: center;
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-link {
+        text-decoration: none;
+        color: var(--clr-two-column-desc);
+    }
+
+    &-link[contact] {
+        background-color: var(--clr-contact-link);
+        font-family: var(--ff-primary-title);
+        font-size: var(--fs-300);
+        color: var(--clr-dark-title);
+        text-transform: uppercase;
+        padding: 1em 1.6em;
+        border-radius: 5rem;
+
+    }
+}
+
+.hamburger-container.active .hamburger-menu {
+    opacity: 1;
 }
 
 .hero {
     position: absolute;
     height: 100%;
     width: 100%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2em;
-    
-    
-    
+
+
+
     h1 {
         text-transform: uppercase;
         font-family: var(--ff-primary-title);
@@ -69,31 +120,31 @@ header {
         flex-direction: column;
         align-items: center;
         gap: 1em;
-        
+
         padding: 2em var(--default-padding-inline);
         text-align: center;
     }
-    
+
     &__title {
         font-family: var(--ff-primary-title);
         line-height: 1.2;
         color: var(--clr-dark-title);
     }
-    
+
     &__message {
-        color: var(--clr-desc);
+        color: var(--clr-two-column-desc);
         font-weight: 500;
     }
-    
+
     .learn-more {
         text-transform: uppercase;
         font-family: var(--ff-primary-title);
         color: var(--clr-dark-title);
         text-decoration: none;
         cursor: pointer;
-        
+
         position: relative;
-        
+
         &::after {
             content: '';
             width: 110%;
@@ -104,21 +155,175 @@ header {
             bottom: 0px;
             left: -5%;
             background-color: hsl(0,0,50%);
-            
+
             border-radius: 5em;
             opacity: .3;
         }
     }
-    
+
     .learn-more[transform] {
         &::after {
             background-color: var(--clr-transform-section);
         }
     }
-    
+
     .learn-more[standout] {
         &::after {
             background-color: var(--clr-standout-section);
         }
+    }
+}
+
+.overlapping-section {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    & > * {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+
+    &__desc {
+        align-self: end;
+        padding: 2.3em var(--default-padding-inline);
+        text-align: center;
+        display: grid;
+        gap: 2em;
+    }
+
+    &__title {
+        font-family: var(--ff-primary-title);
+        line-height: 1.2;
+    }
+
+    &__message {
+        line-height: 1.6;
+    }
+
+    &__title[graphic],
+    &__message[graphic]{
+        color: var(--clr-graphic-section-title);
+    }
+
+    &__title[photography],
+    &__message[photography]{
+        color: var(--clr-photography-section-title);
+    }
+}
+
+.testimonial {
+    h3 {
+        font-family: var(--ff-primary-title);
+        text-transform: uppercase;
+        color: var(--clr-dark-title-lighter);
+        font-size: var(--fs-300);
+        text-align: center;
+        letter-spacing: 3;
+        padding: 3em var(--default-padding-inline);
+    }
+
+    &-card {
+        padding: 2em var(--default-padding-inline);
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+
+        &:not(&:nth-of-type(1)) {
+            margin-block: 2em;
+        }
+
+        &--img {
+            img {
+                max-width: 100px;
+                border-radius: 50%;
+            }
+        }
+
+        &--message {
+            color: var(--clr-testimonial-desc);
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        &--name {
+            color: var(--clr-dark-title);
+            font-family: var(--ff-primary-title);
+            margin-block-start: 2em;
+        }
+
+        &--title {
+            color: var(--clr-desc);
+            margin-block-start: .5em;
+            font-size: var(--fs-200);
+        }
+    }
+
+}
+
+.gallery {
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.footer {
+    background-color: var(--clr-footer);
+
+    &-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-block-start: 3em;
+        padding-block-end: 2.5em;
+
+        &-svg {
+            fill: var(--clr-footer-text);
+        }
+    }
+
+    &-links {
+        //        padding-block-end: 3em;
+
+
+        &-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        &-item a {
+            text-decoration: none;
+            color: var(--clr-footer-text);
+        }
+
+    }
+
+    &-social-media {
+        padding-block: 4em;
+
+        &-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 70%;
+            margin-inline: auto;
+        }
+
+
     }
 }
