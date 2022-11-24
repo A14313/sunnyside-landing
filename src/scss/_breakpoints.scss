@@ -6,7 +6,8 @@ $breakpoints: (
     sm: 600px,
     med: 800px,
     lrg: 1000px,
-    xlrg: 1200px
+    xlrg: 1200px,
+    xxlrg: 1400px
 );
 
 @mixin mediaQuery($key) {

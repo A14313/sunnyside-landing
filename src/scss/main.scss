@@ -14,6 +14,10 @@
     @include mediaQuery(lrg) {
         --default-padding-inline: 2.9rem;
     }
+
+    @include mediaQuery(xlrg) {
+        --default-padding-inline: 5rem;
+    }
 }
 
 body {
@@ -28,7 +32,7 @@ body {
     place-content: center;
     min-height: 100vh;
     gap: 2em;
-    
+
     width: 90%;
     max-width: 1000px;
     margin-inline: auto;
@@ -37,7 +41,7 @@ body {
         line-height: 1;
         font-family: var(--ff-primary-title);
     }
-    
+
     & p {
         line-height: 1.8;
     }
@@ -51,7 +55,7 @@ body {
     width: 90%;
     max-width: 1000px;
     margin-inline: auto;
-    
+
     @include mediaQuery(xsm) {
         width: 50%;
     }
@@ -116,6 +120,7 @@ body {
 }
 
 .nav {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -126,6 +131,10 @@ body {
     top: 0;
     left: 0px;
     z-index: 99;
+
+    @include mediaQuery(xxlrg) {
+        --default-padding-inline: 3rem;
+    }
 
 
 }
@@ -325,10 +334,6 @@ body {
             align-items: flex-start;
             width: 50%;
         }
-
-        @include mediaQuery(lrg) {
-            width: 50%;
-        }
     }
 
     &__title {
@@ -340,6 +345,15 @@ body {
     &__message {
         color: var(--clr-two-column-desc);
         font-weight: 500;
+
+
+        @include mediaQuery(lrg) {
+            line-height: 1.7;
+        }
+
+        @include mediaQuery(xlrg) {
+            line-height: 1.9;
+        }
     }
 
     .learn-more {
@@ -444,6 +458,14 @@ body {
 
     &__message {
         line-height: 1.6;
+        
+        @include mediaQuery(lrg) {
+            line-height: 1.7;
+        }
+
+        @include mediaQuery(xlrg) {
+            line-height: 1.8;
+        }
     }
 
     &__title[graphic],
@@ -466,6 +488,10 @@ body {
         & > * {
             flex: 1;
         }
+    }
+
+    @include mediaQuery(xlrg) {
+        gap: 0em;
     }
 }
 
